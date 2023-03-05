@@ -1,0 +1,86 @@
+
+
+<html>
+    <style>
+        table, th, td {
+            border: 1px solid;
+            font-size: 30;
+            color: #FFFFFF;
+        }
+        td:hover {
+            cursor: pointer;
+        }
+        body {
+            background-image: url("https://media.istockphoto.com/id/494839519/vector/knight-fighting-dragon.jpg?s=612x612&w=0&k=20&c=GUnR0APRVkiuFiREW2Psr0CkBKDaK6Bkkes5mmXENYQ=");
+            background-color: #cccccc;
+        }
+    </style>
+    <table>
+        <tr>
+            <td id="00">Thunder</td>
+            <td id="01">Dragon</td>
+            <td id="02">Glory</td>
+            <td id="03">Eternal</td>
+            <td id="04">Quest</td>
+        </tr>
+        <tr>
+            <td id="10">Fire</td>
+            <td id="11">Freedom</td>
+            <td id="12">Sword</td>
+            <td id="13">Enchantment</td>
+            <td id="14">Chaos</td>
+        </tr>
+        <tr>
+            <td id="20">Victory</td>
+            <td id="21">Warrior</td>
+            <td id="22">Magic</td>
+            <td id="23">Battleground</td>
+            <td id="24">Kingdom</td>
+        </tr>
+        <tr>
+            <td id="30">Knights</td>
+            <td id="31">Honor</td>
+            <td id="32">Power</td>
+            <td id="33">Epic</td>
+            <td id="34">Rage</td>
+        </tr>
+        <tr>
+            <td id="40">Dungeon</td>
+            <td id="41">Mythical</td>
+            <td id="42">Divine</td>
+            <td id="43">Steel</td>
+            <td id="44">Battlecry</td>
+        </tr>
+
+    </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+   // your code here
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+
+                let id = ("" + i) + j
+                let obj = document.getElementById(id)
+
+                if (localStorage.getItem(id) == "true") {
+                    obj.style.background = "red"
+                } else {
+                    obj.style.background = "black"
+                }
+
+                obj.onclick = function() {
+                    console.log(id)
+                    console.log(localStorage.getItem(id) == "true")
+                    localStorage.setItem(id, localStorage.getItem(id) != "true")
+                    let cell = obj
+                    if (localStorage.getItem(id) == "true") {
+                        cell.style.background = "red"
+                    } else {
+                        cell.style.background = "black"
+                    }
+                }
+            }
+        }
+    }, false);
+    </script>
+</html>
